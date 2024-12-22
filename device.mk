@@ -5,7 +5,7 @@
 #
 
 # API levels
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # fastbootd
 PRODUCT_PACKAGES += \
@@ -61,4 +61,4 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/cat/S22FLIP/S22FLIP-vendor.mk)
+#$(call inherit-product, vendor/cat/S22FLIP/S22FLIP-vendor.mk)

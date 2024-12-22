@@ -26,7 +26,8 @@ TARGET_NO_BOOTLOADER := true
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 2
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom androidboot.memcg=true user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=300M androidboot.usbconfigfs=true cgroup.memory=nokmem,nosocket loop.max_part=7 buildvariant=user
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom androidboot.memcg=true user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=300M androidboot.usbconfigfs=true cgroup.memory=nokmem,nosocket loop.max_part=7
+# buildvariant=user
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_IMAGE_NAME := Image
@@ -51,16 +52,17 @@ BOARD_PREBUILT_VENDORIMAGE := $(DEVICE_PATH)/prebuilts/vendor.img
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Partitions
+#-include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
-BOARD_SUPER_PARTITION_SIZE := 9126805504 # TODO: Fix hardcoded value
+BOARD_SUPER_PARTITION_SIZE := 2684354560
 BOARD_SUPER_PARTITION_GROUPS := cat_dynamic_partitions
 BOARD_CAT_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     product \
     vendor
-BOARD_CAT_DYNAMIC_PARTITIONS_SIZE := 9122611200 # TODO: Fix hardcoded value
+BOARD_CAT_DYNAMIC_PARTITIONS_SIZE := 2680160256
 
 # Product
 BOARD_HAS_PRODUCT_PARTITION := true
@@ -94,4 +96,4 @@ BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Inherit the proprietary files
-include vendor/cat/S22FLIP/BoardConfigVendor.mk
+#include vendor/cat/S22FLIP/BoardConfigVendor.mk
