@@ -1,8 +1,8 @@
 #!/vendor/bin/sh
-if ! applypatch --check EMMC:/dev/block/bootdevice/by-name/recovery:50331648:ead632d5e355a3246b7b749505aadfadc0808054; then
+if ! applypatch --check EMMC:/dev/block/bootdevice/by-name/recovery:50331648:a1a182550d4b305358f7f9171e74bfe8f5b7f3e0; then
   applypatch \
           --flash /vendor/etc/recovery.img \
-          --target EMMC:/dev/block/bootdevice/by-name/recovery:50331648:ead632d5e355a3246b7b749505aadfadc0808054 && \
+          --target EMMC:/dev/block/bootdevice/by-name/recovery:50331648:a1a182550d4b305358f7f9171e74bfe8f5b7f3e0 && \
       log -t recovery "Installing new recovery image: succeeded" || \
       log -t recovery "Installing new recovery image: failed"
 else

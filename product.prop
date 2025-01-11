@@ -1,5 +1,7 @@
+# Miscellaneous
 dalvik.vm.systemservercompilerfilter=speed-profile
 ro.com.google.gmsversion=11_202201.go
 ro.opa.eligible_device=true
 ro.setupwizard.rotation_locked=true
 setupwizard.theme=glif_v3_light
+
